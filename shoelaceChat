@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/@shoelace-style/shoelace@2.15.1/cdn/themes/light.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@shoelace-style/shoelace@2.15.1/cdn/themes/dark.css" />
+    <script type="module" src="https://unpkg.com/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"></script>
+</head>
+
+<body class="sl-theme-light"> <!-- sl-theme-dark -->
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <!-- switches & dark/light themes -->
+    <sl-switch class="sl-theme-dark">Dark theme</sl-switch>
+    <sl-switch>Light theme</sl-switch>
+    <sl-switch checked>Checked</sl-switch>
+    <br /> <br />
+    <sl-switch checked size="small">Small</sl-switch>
+    <sl-switch checked size="medium">Medium</sl-switch>
+    <sl-switch checked size="large">Large</sl-switch>
+    <sl-switch checked size="large" style="
+         --width: 100px; --height: 40px; --thumb-size: 36px;
+    ">Huge! </sl-switch>
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <!-- buttons: rect, pill, prefix & suffix -->
+    <sl-button variant="primary">Primary</sl-button>
+    <sl-button pill>Vanilla Pill</sl-button>
+    <sl-button pill>
+        <sl-icon slot="prefix" name="gear"></sl-icon>
+        <sl-icon slot="suffix" name="box-arrow-up-right"></sl-icon>
+        Pill Pre/suf
+    </sl-button>
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <!-- checkboxes sm, md, lg; checked, help text -->
+    <sl-checkbox>Checkbox</sl-checkbox>
+    <sl-checkbox size="large" checked>Checkbox</sl-checkbox>
+    <sl-checkbox size="small" checked>Checkbox</sl-checkbox>
+    <br /> <br />
+    <sl-checkbox help-text="What should the user know about the checkbox?">
+        Label
+    </sl-checkbox>
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <!-- menu/dropdown w/ caret -->
+    <sl-dropdown>
+        <sl-button slot="trigger" caret>Menu</sl-button>
+        <sl-menu>
+            <sl-menu-item value="cut">Cut</sl-menu-item>
+            <sl-menu-item value="copy">Copy</sl-menu-item>
+            <sl-menu-item value="paste">Paste</sl-menu-item>
+        </sl-menu>
+    </sl-dropdown>
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <!-- card w/ image text, small text & footer and styling -->
+    <sl-card class="card-overview">
+        <img slot="image" src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="A kitten sits patiently." />
+
+        <strong>Mittens</strong><br />
+        This kitten is as cute as he is playful. Bring him home today!<br />
+        <small>6 weeks old</small>
+
+        <div slot="footer">
+            <sl-button size="small" variant="primary" pill>Rating</sl-button>
+            <sl-rating></sl-rating>
+        </div>
+    </sl-card>
+    <style>
+        .card-overview {
+            max-width: 220px;
+        }
+
+        .card-overview small {
+            color: var(--sl-color-neutral-500);
+        }
+
+        .card-overview [slot='footer'] {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <!-- a details/toggle element -->
+    <sl-details summary="Toggle Me">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </sl-details>
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <sl-select label="Experience" help-text="Please tell us your skill level.">
+        <sl-option value="1">Novice</sl-option>
+        <sl-option value="2">Intermediate</sl-option>
+        <sl-option value="3">Advanced</sl-option>
+    </sl-select>
+
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+    <!-- split panel w/ text and detail items -->
+    <sl-split-panel style="height: 350px">
+        <div slot="start" style="background: #eee; padding: 10px; overflow: hidden;">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, ab enim? Impedit deserunt magnam consequatur reiciendis id iusto a ad provident quia doloribus voluptates ratione, blanditiis vitae nemo consectetur fugit!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, ab enim? Impedit deserunt magnam consequatur reiciendis id iusto a ad provident quia doloribus voluptates ratione, blanditiis vitae nemo consectetur fugit!</p>
+        </div>
+        <div slot="end" style="padding: 10px; ">
+            <div class="details-group-example">
+                <sl-details summary="First" open>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </sl-details>
+                <sl-details summary="Second">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </sl-details>
+                <sl-details summary="Third">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </sl-details>
+            </div>
+            <script>
+                const container = document.querySelector('.details-group-example');
+                // Close all other details when one is shown
+                container.addEventListener('sl-show', event => {
+                    if (event.target.localName === 'sl-details') {
+                        [...container.querySelectorAll('sl-details')].map(details => (details.open = event.target === details));
+                    }
+                });
+            </script>
+            <style>
+                .details-group-example sl-details:not(:last-of-type) {
+                    margin-bottom: var(--sl-spacing-2x-small);
+                }
+            </style>
+
+        </div>
+    </sl-split-panel>
+
+
+    <br /><br />
+    <sl-divider style="--color: tomato;"></sl-divider>
+
+</body>
+
+</html>
+
