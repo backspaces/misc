@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200">
+    <!-- references:
+        https://tailwindcss.com/docs/installation
+        https://www.geeksforgeeks.org/tailwind-css/
+
+        https://www.w3schools.com/howto/
+        https://uiverse.io/switches
+        https://medium.com/front-end-weekly/build-a-css-only-toggle-switch-using-tailwindcss-d2739882934
+
+        https://www.hyperui.dev/components/application-ui/dropdown
+        https://tw-elements.com/docs/standard/navigation/navbar/
+        https://tw-elements.com/docs/standard/forms/switch
+        https://daisyui.com/components/dropdown/
+        https://flowbite.com/docs/forms/toggle/
+        https://tailgrids.com/components/toggle-switch
+
+        I like: css is local not global
+        I don't like: no way to have several repeated items be named
+    -->
+
+    <!-- sticky navbar: z needed: switches use relative -->
+    <nav class="sticky px-3 top-0 bg-gray-900 z-10
+        flex items-center justify-between">
+        <img class="size-16" src="redfish.png" alt="redfish Logo">
+
+        <div class="text-blue-500 flex space-x-4">
+            <a class="hover:text-white" href="#">Home</a>
+            <a class="hover:text-white" href="#">Docs</a>
+            <a class="hover:text-white" href="#">Blog</a>
+        </div>
+
+        <a class="text-red-500 hover:text-white float-right" href="#">Utilities</a>
+    </nav>
+
+    <p class="px-4 mt-6">^A sticky nav bar, full width</p>
+    <hr class="border border-red-500 my-2" />
+
+    <div class="max-w-md mx-auto">
+
+        <p class="px-4 mt-6">We want to avoid:</p>
+        <hr class="border border-red-500 my-2" />
+        <img class="size-20x" src="messy.jpg" alt="Messy tailwind">
+
+        <p class="px-4 mt-6">A simple card</p>
+        <hr class="border border-red-500 my-2" />
+
+        <div class="border border-slate-300 rounded-xl shadow-lg
+            p-8 flex items-center space-x-4">
+            <img class="size-20" src="redfish.png" alt="redfish Logo">
+            <div>
+                <p class="text-xl font-medium text-black">RedFish</p>
+                <p class="text-slate-500">Join the fun!</p>
+            </div>
+        </div>
+
+        <p class="px-4 mt-6">paragraphs with separation</p>
+        <hr class="border border-red-500 my-2" />
+
+        <div class="flex flex-col space-y-5">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illum voluptatem praesentium dolores iusto magni cupiditate, assumenda modi commodi pariatur eligendi, ducimus iste odit! Culpa placeat ducimus laborum cumque asperiores.</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illum voluptatem praesentium dolores iusto magni cupiditate, assumenda modi commodi pariatur eligendi, ducimus iste odit! Culpa placeat ducimus laborum cumque asperiores.</p>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illum voluptatem praesentium dolores iusto magni cupiditate, assumenda modi commodi pariatur eligendi, ducimus iste odit! Culpa placeat ducimus laborum cumque asperiores.</p>
+        </div>
+
+        <p class="px-4 mt-6">responsive card</p>
+        <hr class="border border-red-500 my-2" />
+
+        <div class="p-4 border border-slate-300 rounded-xl shadow-lg space-y-2
+                sm:flex sm:items-center sm:space-x-6">
+
+            <img class="size-24 mx-auto sm:mx-0" src="redfish.png" alt="redfish Logo">
+
+            <div class="text-center space-y-2 sm:text-left">
+                <div class="space-y-0.5">
+                    <p class="text-lg text-black font-semibold">
+                        Erin Lindford
+                    </p>
+                    <p class="text-slate-500 font-medium">
+                        Product Engineer
+                    </p>
+                </div>
+                <button class="px-4 py-1 border border-purple-200 rounded-full
+            text-sm text-purple-600 font-semibold
+            hover:text-white hover:bg-purple-600">Message</button>
+            </div>
+        </div>
+
+        <p class="px-4 mt-6">buttons with various features</p>
+        <hr class="border border-red-500 my-2" />
+
+        <!-- buttons with various features:
+          round corners, padding, gaps/margins, text/font, hover/focus
+          grouping of classes for better readability-->
+        <div class="flex gap-4">
+            <button type="button" class="
+        rounded-lg px-5 py-2.5 bg-blue-700
+        text-white text-sm font-medium
+        hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">Default</button>
+
+            <button type="button" class="
+        rounded-lg px-5 py-2.5 bg-gray-800
+        text-white text-sm font-medium
+        hover:bg-gray-600 focus:ring-4 focus:ring-gray-400">Dark</button>
+
+            <button type="button" class="
+        rounded-2xl px-5 py-2.5 bg-green-700
+        text-white text-sm font-medium
+        hover:bg-green-800 focus:ring-4 focus:ring-green-300">Green</button>
+
+            <button type="button" class="
+        rounded-full px-5 py-2.5 bg-red-700
+        text-white text-sm font-medium
+        hover:bg-red-800 focus:ring-4 focus:ring-red-300">Red</button>
+        </div>
+
+        <p class="px-4 mt-6">HTML does not have dropdown menus. Here's how:</p>
+        <hr class="border border-red-500 my-2" />
+
+        <div class="flex space-x-6">
+            <div class="cursor-pointer">
+                <button onclick="toggleDropdown()" class="
+                        border border-gray-400 rounded px-5 py-2
+                        "> Options </button>
+                <div id="dropdown-menu" class="
+                        hidden absolute shadow-md p-2
+                        border border-gray-300 bg-white">
+                    <div class="px-4 hover:bg-gray-100">Account</div>
+                    <div class="px-4 hover:bg-gray-100">Settings</div>
+                </div>
+                <script>
+                    function toggleDropdown() {
+                        const dropdown = document.querySelector('#dropdown-menu');
+                        dropdown.classList.toggle('hidden');
+                    }
+                </script>
+            </div>
+
+            <div>
+                <details class="cursor-pointer">
+                    <summary class="
+                            border border-gray-400 block rounded px-5 py-2
+                            "> Choose</summary>
+                    <ul class="p-2 shadow-lg absolute bg-white">
+                        <li class="px-4 py-1 hover:bg-gray-100"><a>Item 1</a></li>
+                        <li class="px-4 py-1 hover:bg-gray-100"><a>Item 2</a></li>
+                    </ul>
+                </details>
+            </div>
+        </div>
+
+        <p class="px-4 mt-6">HTML does not have a switch element. Here's how:</p>
+        <hr class="border border-red-500 my-2" />
+        <!--
+            Safari has one: https://webkit.org/blog/15054/an-html-switch-control/
+            html/css: https://www.w3schools.com/howto/howto_css_switch.asp
+            tailwind: https://tailgrids.com/components/toggle-switch
+        -->
+
+        <div>
+            <div>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <span style="margin: 50px 10px;">Html/css toggle</span>
+                <style>
+                    /* The switch - the box around the slider */
+                    .switch {
+                        position: relative;
+                        display: inline-block;
+                        width: 50px;
+                        height: 28px;
+                    }
+
+                    /* Hide default HTML checkbox */
+                    .switch input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+
+                    /* The slider */
+                    .slider {
+                        position: absolute;
+                        cursor: pointer;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-color: #ccc;
+                        transition: .2s;
+                    }
+
+                    .slider:before {
+                        position: absolute;
+                        content: "";
+                        height: 20px;
+                        width: 20px;
+                        left: 4px;
+                        bottom: 4px;
+                        background-color: white;
+                        transition: .2s;
+                    }
+
+                    input:checked+.slider {
+                        background-color: #2196F3;
+                    }
+
+                    input:focus+.slider {
+                        box-shadow: 0 0 1px #2196F3;
+                    }
+
+                    input:checked+.slider:before {
+                        transform: translateX(22px);
+                    }
+
+                    /* Rounded sliders */
+                    .slider.round {
+                        border-radius: 34px;
+                    }
+
+                    .slider.round:before {
+                        border-radius: 50%;
+                    }
+                </style>
+            </div>
+
+            <div class="mt-2">
+                <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" value="" class="sr-only peer">
+                    <div class="
+                    relative w-11 h-6 bg-gray-200 rounded-full
+
+                    peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300
+                    peer peer-checked:after:translate-x-full peer-checked:after:border-white
+                    peer-checked:bg-blue-600 rtl:peer-checked:after:-translate-x-full
+
+                    after:content-[''] after:absolute after:top-[2px] after:start-[2px]
+                    after:bg-white after:border-gray-300 after:border after:rounded-full
+                    after:h-5 after:w-5 after:transition-all">
+                    </div>
+                    <span class="ml-3 text-sm font-medium text-gray-900">Tailwind toggle</span>
+                </label>
+            </div>
+
+            <div>
+                <label class="relative inline-flex cursor-pointer items-center">
+                    <input id="switch-2" type="checkbox" class="peer sr-only" />
+                    <label for="switch-2" class="hidden"></label>
+                    <div class="h-4 w-11 rounded-full border bg-slate-200
+
+                    after:absolute after:-top-1 after:left-0 after:h-6 after:w-6 after:rounded-full
+                    after:border after:border-gray-300 after:bg-white after:transition-all after:content-['']
+
+                    peer peer-checked:bg-green-300 peer-checked:after:translate-x-full peer-focus:ring-green-300"></div>
+                    <span class="ml-3 text-sm font-medium text-gray-900">Another Tailwind toggle</span>
+                </label>
+            </div>
+        </div>
+
+        <p class="px-4 mt-6">radio button groups: tailwind & simple, nested labels</p>
+        <hr class="border border-red-500 my-2" />
+
+        <div>
+            <fieldset>
+                <!-- Note: label including the input => no id needed! yay! -->
+                <label class="peer-checked/draft:text-sky-500">
+                    <input type="radio" class="peer/draft" name="status" checked />
+                    Draft
+                </label>
+                <label class="peer-checked/published:text-sky-500">
+                    <input type="radio" class="peer/published" name="status" />
+                    Published
+                </label>
+            </fieldset>
+            <fieldset class="flex flex-row gap-x-4">
+                <label>
+                    <input type="radio" name="threeKids" value="huey" checked />
+                    Huey
+                </label>
+                <label>
+                    <input type="radio" name="threeKids" value="dewey" />
+                    Dewey
+                </label>
+                <label>
+                    <input type="radio" name="threeKids" value="louie" />
+                    Louie
+                </label>
+            </fieldset>
+        </div>
+
+        <p class="px-4 mt-6">check boxes</p>
+        <hr class="border border-red-500 my-2" />
+
+        <!-- checkboxes -->
+        <fieldset>
+            <legend>Choose your interests</legend>
+
+            <input type="checkbox" id="coding" name="interest" value="coding" />
+            <label for="coding">Coding</label>
+
+            <label>
+                <input type="checkbox" name="interest" value="music" />
+                Music
+            </label>
+        </fieldset>
+        <br>
+        <fieldset class="flex flex-col">
+            <legend>Choose your interests</legend>
+
+            <label>
+                <input type="checkbox" name="interest" value="coding" />
+                Coding
+            </label>
+
+            <label>
+                <input type="checkbox" name="interest" value="coding" />
+                Music
+            </label>
+        </fieldset>
+
+        <p class="px-4 mt-6">traditional legend</p>
+        <hr class="border border-red-500 my-2" />
+
+        <div>
+            <fieldset class='p-3 border border-black flex flex-col'>
+                <legend>Choose a monster</legend>
+
+                <label>
+                    <input type="radio" name="monster" value="K" />
+                    Kraken
+                </label>
+
+                <label>
+                    <input type="radio" name="monster" value="S" />
+                    Sasquatch
+                </label>
+
+                <label>
+                    <input type="radio" name="monster" value="M" />
+                    Mothman
+                </label>
+            </fieldset>
+            </form>
+        </div>
+
+        <hr class="border border-red-500 my-2" />
+        <br><br><br><br>
+    </div>
+</body>
+
+</html>
+
+<!--
+    Note: label stunt, also makes gap work w/o wrapping in div:
+    <div>
+        <input type="radio" id="dewey" name="threeKids" value="dewey" />
+        <label for="dewey">Dewey</label>
+    </div>
+-->
