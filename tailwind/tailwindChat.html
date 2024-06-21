@@ -241,6 +241,7 @@
             <div class="mt-2">
                 <label class="inline-flex items-center cursor-pointer">
                     <input type="checkbox" value="" class="sr-only peer">
+
                     <div class="
                     relative w-11 h-6 bg-gray-200 rounded-full
 
@@ -260,6 +261,7 @@
                 <label class="relative inline-flex cursor-pointer items-center">
                     <input id="switch-2" type="checkbox" class="peer sr-only" />
                     <label for="switch-2" class="hidden"></label>
+
                     <div class="h-4 w-11 rounded-full border bg-slate-200
 
                     after:absolute after:-top-1 after:left-0 after:h-6 after:w-6 after:rounded-full
@@ -276,7 +278,7 @@
 
         <div>
             <fieldset>
-                <!-- Note: label including the input => no id needed! yay! -->
+                <!-- Note: label including the input => no id & for needed! yay! -->
                 <label class="peer-checked/draft:text-sky-500">
                     <input type="radio" class="peer/draft" name="status" checked />
                     Draft
@@ -286,6 +288,7 @@
                     Published
                 </label>
             </fieldset>
+
             <fieldset class="flex flex-row gap-x-4">
                 <label>
                     <input type="radio" name="threeKids" value="huey" checked />
@@ -305,12 +308,13 @@
         <p class="px-4 mt-6">check boxes</p>
         <hr class="border border-red-500 my-2" />
 
-        <!-- checkboxes -->
         <fieldset>
             <legend>Choose your interests</legend>
 
-            <input type="checkbox" id="coding" name="interest" value="coding" />
-            <label for="coding">Coding</label>
+            <label>
+                <input type="checkbox" name="interest" value="coding" />
+                Coding
+            </label>
 
             <label>
                 <input type="checkbox" name="interest" value="music" />
@@ -354,7 +358,6 @@
                     Mothman
                 </label>
             </fieldset>
-            </form>
         </div>
 
         <hr class="border border-red-500 my-2" />
@@ -363,11 +366,3 @@
 </body>
 
 </html>
-
-<!--
-    Note: label stunt, also makes gap work w/o wrapping in div:
-    <div>
-        <input type="radio" id="dewey" name="threeKids" value="dewey" />
-        <label for="dewey">Dewey</label>
-    </div>
--->
