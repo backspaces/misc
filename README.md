@@ -5,4 +5,4 @@ Various files accessible within this ghpage
 
 [Tailwind chat](https://backspaces.github.io/misc/tailwind/tailwindChat.html)
 
-[glitch.md](https://backspaces.github.io/misc/files/glitch.md)
+[glitch](https://backspaces.github.io/misc/files/glitch.md)
